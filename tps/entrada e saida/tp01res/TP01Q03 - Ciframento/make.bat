@@ -30,9 +30,8 @@ if %ERRORLEVEL% neq 0 (
     exit /b
 )
 
-color
-:: Comparar as saídas
-fc teste.out pub.out
+:: Comparar os arquivos com diff usando WSL
+wsl diff -w teste.out pub.out
 if %ERRORLEVEL% neq 0 (
     echo Diferencas encontradas nas saidas.
     pause
